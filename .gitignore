@@ -1,0 +1,13 @@
+# Session transcripts and temp data
+*.jsonl
+weekly-summary-raw.json
+
+# Memory (personal context, not config)
+memory/
+MEMORY.md
+
+# OS/editor
+.DS_Store
+*.swp
+*~
+bin/gcal_auth*.py
