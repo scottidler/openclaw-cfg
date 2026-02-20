@@ -7,7 +7,7 @@ WORKSPACE = Path(__file__).parent.parent
 PROMPTS_DIR = WORKSPACE / "prompts"
 
 def load_prompt(name):
-    """Load a prompt template from the prompts directory."""
+    """Load a prompt template from the prompts directory (use hyphens in name)."""
     prompt_file = PROMPTS_DIR / f"{name}.pmt"
     if not prompt_file.exists():
         return None
@@ -100,7 +100,7 @@ def get_slack():
 
 def format_output(calendar_data, email_data, slack_data):
     """Format the raw data using the prompt template if available."""
-    prompt_template = load_prompt("daily_briefing")
+    prompt_template = load_prompt("daily-briefing")
     
     # For now, just return structured text (AI summarization would happen elsewhere)
     output = "=== DAILY BRIEFING ===\n\n"
