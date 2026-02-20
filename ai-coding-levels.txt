@@ -1,0 +1,226 @@
+*Core Thesis*
+
+There's a widening gap in software development:
+
+• *A small number of teams* (e.g., StrongDM, Anthropic) are running near-autonomous "dark factories" where AI agents write, test, and ship code with minimal or no human code involvement.
+
+• *Most developers*, even experienced ones, are actually getting _slower_ when using AI tools—at least initially—according to controlled studies.
+
+The difference isn't about tools.
+It's about *workflow redesign, organizational change, and spec quality*.
+
+The bottleneck is shifting from _implementation_ to _judgment and specification_.
+
+---
+
+*The 5 Levels of AI Coding (Dan Shapiro's Framework)*
+
+*Level 0 – "Spicy Autocomplete"*
+
+AI as enhanced tab-complete.
+
+• AI suggests the next line of code.
+• Human writes everything.
+• AI reduces keystrokes.
+• Example: Early GitHub Copilot.
+
+*Human role:* Full author
+*AI role:* Faster typing
+
+---
+
+*Level 1 – Coding Intern*
+
+AI handles small, well-scoped tasks.
+
+• "Write this function."
+• "Refactor this module."
+• Human reviews all output.
+• Human owns architecture and integration.
+
+*Human role:* Architect + reviewer
+*AI role:* Task executor
+
+Most current usage sits here.
+
+---
+
+*Level 2 – Junior Developer*
+
+AI handles multi-file changes and navigates the codebase.
+
+• Can implement features spanning modules.
+• Understands dependencies.
+• Human still reviews all code.
+
+Many "AI-native" developers believe they're advanced, but are typically here.
+
+*Human role:* Senior dev reviewing everything
+*AI role:* Capable feature implementer
+
+---
+
+*Level 3 – Developer as Manager*
+
+Human directs. AI implements entire features and submits PRs.
+
+• AI writes full implementations.
+• AI submits PRs.
+• Human reviews at PR level.
+• Human no longer writes most code.
+
+This is where most teams plateau.
+
+*Human role:* Reviewer + decision-maker
+*AI role:* Primary implementer
+
+---
+
+*Level 4 – Developer as Product Manager*
+
+Human writes specs. AI builds and tests.
+
+• Human writes detailed specification.
+• AI implements entire system.
+• AI runs tests.
+• Human checks outcomes—not code.
+
+The code becomes a black box.
+Trust shifts to spec quality and evaluation design.
+
+*Human role:* Spec author + outcome evaluator
+*AI role:* Builder + tester
+
+Few teams operate here consistently.
+
+---
+
+*Level 5 – The Dark Factory*
+
+Fully autonomous software production.
+
+• Spec goes in. Working software comes out.
+• No human writes code.
+• No human reviews code.
+• Evaluation happens through external behavioral scenarios.
+
+Example: StrongDM's "software factory."
+
+Key architectural shifts:
+• External "holdout" behavioral scenarios (AI can't see them).
+• Simulated digital twin environments for integration testing.
+• High compute spend per engineer to maximize agent throughput.
+
+*Human role:* Define what should exist
+*AI role:* Everything else
+
+Very rare today—but real.
+
+---
+
+*Why Most Developers Get Slower*
+
+A 2025 randomized controlled trial found:
+
+• Developers using AI tools were *19% slower*.
+• They believed they were *24% faster*.
+
+Why?
+
+• Time spent reviewing AI output
+• Debugging subtle AI-introduced errors
+• Context switching between human mental model and AI model
+• Workflow disruption
+
+This is the *J-curve effect*: Productivity dips before improving.
+
+Most organizations are stuck in the dip.
+They adopt tools without redesigning workflows.
+
+---
+
+*The Real Shift: From Coding to Spec Writing*
+
+As you move up levels:
+
+Old Bottleneck → New Bottleneck
+• Writing code → Writing specs
+• Implementation speed → Clarity of articulation
+• Coordination → Judgment
+
+In the dark factory model:
+
+Standups? Sprint planning? Code reviews? QA teams?
+
+Many of these become unnecessary or frictional.
+
+What matters instead:
+
+• Deep system understanding
+• Customer understanding
+• Precise specification
+• Outcome evaluation
+
+---
+
+*The Talent Shift*
+
+Junior roles are shrinking sharply.
+
+Why? AI automates:
+• Small bug fixes
+• Simple features
+• CRUD endpoints
+• Basic refactors
+
+The remaining work requires:
+• Systems thinking
+• Architecture judgment
+• Security reasoning
+• Customer insight
+• Clear spec writing
+
+The career ladder is changing:
+• Fewer entry-level implementation tasks
+• More emphasis on generalist systems thinkers
+• AI fluency becomes mandatory
+
+---
+
+*Organizational Implication*
+
+Traditional orgs were designed around:
+• Humans writing code
+• Humans coordinating
+• Humans reviewing humans
+
+Dark-factory orgs look like:
+• Small teams
+• High revenue per employee
+• Spec-driven development
+• AI-native workflow from the ground up
+
+The gap between frontier teams and everyone else is:
+• Cultural
+• Organizational
+• Psychological
+
+Not just technical.
+
+---
+
+*Final Takeaway*
+
+We are not automating software engineering.
+We are removing implementation as the primary constraint.
+
+The constraint is now:
+
+• Do you know what should be built?
+• Can you describe it clearly enough that machines can build it?
+• Can you evaluate whether it actually works for real humans?
+
+The dark factory doesn't eliminate engineers.
+It eliminates engineers who only implement.
+
+And amplifies engineers who can think.

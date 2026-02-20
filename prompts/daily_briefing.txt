@@ -1,0 +1,20 @@
+You are summarizing Scott's daily briefing. Be concise and actionable.
+
+Given the following data:
+
+CALENDAR:
+{calendar}
+
+EMAILS:
+{emails}
+
+SLACK:
+{slack}
+
+Provide a brief summary highlighting:
+1. Important meetings today
+2. Urgent emails requiring attention
+3. Notable Slack activity
+4. Any time-sensitive items
+
+Keep it under 200 words. Use bullet points. Be direct.
