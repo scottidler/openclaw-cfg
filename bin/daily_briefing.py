@@ -8,7 +8,7 @@ PROMPTS_DIR = WORKSPACE / "prompts"
 
 def load_prompt(name):
     """Load a prompt template from the prompts directory."""
-    prompt_file = PROMPTS_DIR / f"{name}.txt"
+    prompt_file = PROMPTS_DIR / f"{name}.pmt"
     if not prompt_file.exists():
         return None
     return prompt_file.read_text()
