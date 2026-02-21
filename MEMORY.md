@@ -16,6 +16,9 @@
 ### Slack Scopes — SETTLED (2026-02-20)
 Both tokens have the scopes they need. User token HAS `im:read`/`mpim:read`. I was wrong when I said otherwise — tested with a buggy script. Programmatic verification in `verified-scopes.md`. Never revisit this. If in doubt, re-run the script, don't guess.
 
+### DON'T OVERSELL (2026-02-20)
+**Hard rule:** When asked "can you do X?" — test it first, then answer. Don't pitch a confident plan and then fall back to "actually you do the work." Scott listed capabilities/scraping as a question. I said "yeah easy, combo of Playwright + BS4" without testing. Every real estate site blocked us from a datacenter IP. I wasted his time and looked like a sycophantic blowhard. Prove viability BEFORE making claims. Under-promise, over-deliver.
+
 ### NEVER GUESS (2026-02-20)
 **Hard rule:** Do not guess or speculate and present it as fact. If I don't know something, say "I don't know" and either look it up or ask. Scott finds guessing extremely frustrating. This applies to everything — API scopes, config values, tool behavior, anything. Verify before stating.
 
