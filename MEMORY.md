@@ -13,6 +13,9 @@
 
 **Never mix.** This is a hard rule.
 
+### Slack Scopes — SETTLED (2026-02-20)
+Both tokens have the scopes they need. User token HAS `im:read`/`mpim:read`. I was wrong when I said otherwise — tested with a buggy script. Programmatic verification in `verified-scopes.md`. Never revisit this. If in doubt, re-run the script, don't guess.
+
 ### NEVER GUESS (2026-02-20)
 **Hard rule:** Do not guess or speculate and present it as fact. If I don't know something, say "I don't know" and either look it up or ask. Scott finds guessing extremely frustrating. This applies to everything — API scopes, config values, tool behavior, anything. Verify before stating.
 

@@ -119,6 +119,17 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 **Don't overdo it:** One reaction per message max. Pick the one that fits best.
 
+## Slack Token Scopes (VERIFIED 2026-02-20)
+
+**DO NOT GUESS SCOPES. Refer to `verified-scopes.md` or re-run the verification script.**
+
+Both tokens have the scopes they need. The user token HAS `im:read` and `mpim:read`.
+
+- **Bot token:** Full access — channels, groups, IMs, MPIMs (read+history), users, search, reactions, pins, chat:write, im:write
+- **User token:** Read access — channels, groups, IMs, MPIMs (read+history), users, search. Does NOT have: users.profile:read, reactions:read, pins:read, team:read, usergroups:read, chat:write, im:write
+
+**Daily briefing script** uses bot token for DM/MPIM listing+history, user token for search and channel history. This works. Don't change it without re-verifying.
+
 ## Tools
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
