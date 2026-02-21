@@ -80,6 +80,7 @@ def get_slack():
         with open('/data/.openclaw/openclaw.json') as f:
             config = json.load(f)
             token = config['channels']['slack']['userToken']
+            bot_token = config['channels']['slack']['botToken']
 
         now = time.time()
         oldest = now - (24 * 3600)
@@ -153,21 +154,81 @@ def get_slack():
             if entries:
                 channel_results[ch_name] = "\n".join(entries[:10])
 
-        # === DM & GROUP DM ACTIVITY (via search) ===
+        # === DM & GROUP DM ACTIVITY (via conversations.list + history) ===
         dm_results = []
+        MY_USER_ID = "U01G15A5EG6"
+        BOT_USER_ID = "U0AF4EG3FV2"
+
+        for dm_type in ["im", "mpim"]:
+            cursor = ""
+            while True:
+                params = {"types": dm_type, "limit": 200, "exclude_archived": "true"}
+                if cursor:
+                    params["cursor"] = cursor
+                resp = slack_api("conversations.list", bot_token, params)
+                if not resp.get("ok"):
+                    break
+                for ch in resp.get("channels", []):
+                    ch_id = ch.get("id", "")
+                    # Read history for this DM/MPIM
+                    hist = slack_api("conversations.history", bot_token, {
+                        "channel": ch_id,
+                        "oldest": int(oldest),
+                        "limit": 20,
+                    })
+                    if not hist.get("ok"):
+                        continue
+                    messages = hist.get("messages", [])
+                    # Filter out bot messages and noise
+                    entries = []
+                    for msg in messages:
+                        uid = msg.get("user", "")
+                        if uid == BOT_USER_ID:
+                            continue  # Skip our own bot messages
+                        if msg.get("subtype") in ("channel_join", "channel_leave", "bot_add", "bot_remove"):
+                            continue
+                        text = msg.get("text", "").strip()
+                        if not text or any(p.match(text) for p in noise_re):
+                            continue
+                        text = resolve(text)
+                        user = user_map.get(uid, uid)
+                        preview = text[:120]
+                        if len(text) > 120:
+                            preview += "..."
+                        entries.append(f"  - {user}: {preview}")
+                        if len(entries) >= 3:
+                            break
+                    if entries:
+                        # Build display name
+                        if dm_type == "im":
+                            other_uid = ch.get("user", "")
+                            display_name = f"DM: {user_map.get(other_uid, other_uid)}"
+                        else:
+                            # MPIM — get member names
+                            name = ch.get("name", "")
+                            if name.startswith("mpdm-"):
+                                parts = name.replace("mpdm-", "").rsplit("-1", 1)[0]
+                                names = [n.split(".")[0].title() for n in parts.split("--") if n != "scott.idler"]
+                                display_name = "Group: " + ", ".join(names)
+                            else:
+                                display_name = f"Group: {name}"
+                        dm_results.append(f"{display_name}:\n" + "\n".join(entries))
+                cursor = resp.get("response_metadata", {}).get("next_cursor", "")
+                if not cursor:
+                    break
+
+        # Also search for DM activity via user token (catches DMs bot isn't part of)
         yesterday = datetime.datetime.now() - datetime.timedelta(days=1)
         date_str = yesterday.strftime("%Y-%m-%d")
-        import urllib.parse
-        resp = slack_api("search.messages", token, {
-            "query": f"to:me is:dm after:{date_str}",
+        search_resp = slack_api("search.messages", token, {
+            "query": f"is:dm after:{date_str}",
             "sort": "timestamp",
             "sort_dir": "desc",
             "count": 50,
         })
-        if resp.get("ok"):
-            # Group by conversation
-            convos = {}
-            for m in resp.get("messages", {}).get("matches", []):
+        if search_resp.get("ok"):
+            search_convos = {}
+            for m in search_resp.get("messages", {}).get("matches", []):
                 ch_name = m.get("channel", {}).get("name", "unknown")
                 username = m.get("username", "?")
                 text = m.get("text", "").strip()
@@ -177,20 +238,17 @@ def get_slack():
                 preview = text[:120]
                 if len(text) > 120:
                     preview += "..."
-                if ch_name not in convos:
-                    convos[ch_name] = []
-                if len(convos[ch_name]) < 3:  # Max 3 messages per convo
-                    convos[ch_name].append(f"  - {username}: {preview}")
-
-            for ch_name, msgs in convos.items():
-                # Clean up mpdm names to just show participants
+                if ch_name not in search_convos:
+                    search_convos[ch_name] = []
+                if len(search_convos[ch_name]) < 3:
+                    search_convos[ch_name].append(f"  - {username}: {preview}")
+            for ch_name, msgs in search_convos.items():
                 display_name = ch_name
                 if ch_name.startswith("mpdm-"):
                     parts = ch_name.replace("mpdm-", "").rsplit("-1", 1)[0]
                     names = [n.split(".")[0].title() for n in parts.split("--") if n != "scott.idler"]
                     display_name = "Group: " + ", ".join(names)
-                elif ch_name.startswith("D") or ch_name.startswith("U"):
-                    # Try to get a readable name from the first message
+                else:
                     first_user = msgs[0].split(":")[0].strip().lstrip("- ") if msgs else ch_name
                     display_name = f"DM: {first_user}"
                 dm_results.append(f"{display_name}:\n" + "\n".join(msgs))
