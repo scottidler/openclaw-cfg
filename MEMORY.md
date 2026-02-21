@@ -54,6 +54,14 @@ Both tokens have the scopes they need. User token HAS `im:read`/`mpim:read`. I w
 - Load them dynamically in Python scripts
 - Makes it easier to iterate on prompts without touching code
 
+### 2026-02-21: NEVER COMMIT SECRETS TO GIT
+- **CRITICAL FUCK-UP:** I committed API keys to openclaw-cfg repo
+- GitGuardian caught it, secrets exposed publicly
+- **RULE:** secrets/ is in .gitignore, NEVER remove it
+- **RULE:** API keys live in secrets/*.env, NEVER in code or config
+- **RULE:** After exposing secrets, IMMEDIATELY revoke and rotate them
+- I will NEVER make this mistake again
+
 ---
 
 _This file is my curated long-term memory. Daily notes go in `memory/YYYY-MM-DD.md`._

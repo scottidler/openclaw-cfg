@@ -1,0 +1,329 @@
+{
+  "Portland OR Metro (PDX)": {
+    "region_data": {
+      "state": "OR",
+      "counties": [
+        "Washington",
+        "Clackamas",
+        "Yamhill",
+        "Columbia"
+      ],
+      "airport": "PDX"
+    },
+    "searches": [
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/or?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/OR/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "land.com",
+        "url": "https://www.land.com/oregon?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/washington-county-or?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Washington County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/OR/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Washington",
+        "scope": "Washington County"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/clackamas-county-or?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Clackamas County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/OR/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Clackamas",
+        "scope": "Clackamas County"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/yamhill-county-or?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Yamhill County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/OR/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Yamhill",
+        "scope": "Yamhill County"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/columbia-county-or?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Columbia County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/OR/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Columbia",
+        "scope": "Columbia County"
+      }
+    ]
+  },
+  "WA Columbia Gorge (PDX)": {
+    "region_data": {
+      "state": "WA",
+      "counties": [
+        "Skamania"
+      ],
+      "airport": "PDX",
+      "notes": "Up to Stevenson"
+    },
+    "searches": [
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/wa?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/WA/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "land.com",
+        "url": "https://www.land.com/washington?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/skamania-county-wa?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Skamania County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/WA/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Skamania",
+        "scope": "Skamania County"
+      }
+    ]
+  },
+  "Tacoma WA Area (SEA-TAC)": {
+    "region_data": {
+      "state": "WA",
+      "counties": [
+        "Pierce",
+        "King South"
+      ],
+      "airport": "SEA-TAC"
+    },
+    "searches": [
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/wa?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/WA/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "land.com",
+        "url": "https://www.land.com/washington?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/pierce-county-wa?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Pierce County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/WA/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Pierce",
+        "scope": "Pierce County"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/king-south-county-wa?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "King South County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/WA/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=King+South",
+        "scope": "King South County"
+      }
+    ]
+  },
+  "Santa Fe NM Area (ABQ)": {
+    "region_data": {
+      "state": "NM",
+      "counties": [
+        "Santa Fe",
+        "Bernalillo",
+        "Sandoval"
+      ],
+      "airport": "ABQ"
+    },
+    "searches": [
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/nm?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/NM/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "land.com",
+        "url": "https://www.land.com/new-mexico?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/santa-fe-county-nm?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Santa Fe County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/NM/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Santa+Fe",
+        "scope": "Santa Fe County"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/bernalillo-county-nm?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Bernalillo County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/NM/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Bernalillo",
+        "scope": "Bernalillo County"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/sandoval-county-nm?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Sandoval County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/NM/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Sandoval",
+        "scope": "Sandoval County"
+      }
+    ]
+  },
+  "Southern California Border (SAN)": {
+    "region_data": {
+      "state": "CA",
+      "counties": [
+        "San Diego"
+      ],
+      "airport": "SAN"
+    },
+    "searches": [
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/ca?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/CA/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "land.com",
+        "url": "https://www.land.com/california?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/san-diego-county-ca?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "San Diego County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/CA/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=San+Diego",
+        "scope": "San Diego County"
+      }
+    ]
+  },
+  "Colorado Front Range (DEN/COS)": {
+    "region_data": {
+      "state": "CO",
+      "counties": [
+        "El Paso",
+        "Douglas",
+        "Jefferson",
+        "Boulder",
+        "Larimer"
+      ],
+      "airport": "DEN/COS"
+    },
+    "searches": [
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/co?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/CO/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "land.com",
+        "url": "https://www.land.com/colorado?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "state-wide"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/el-paso-county-co?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "El Paso County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/CO/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=El+Paso",
+        "scope": "El Paso County"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/douglas-county-co?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Douglas County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/CO/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Douglas",
+        "scope": "Douglas County"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/jefferson-county-co?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Jefferson County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/CO/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Jefferson",
+        "scope": "Jefferson County"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/boulder-county-co?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Boulder County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/CO/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Boulder",
+        "scope": "Boulder County"
+      },
+      {
+        "site": "landsearch.com",
+        "url": "https://www.landsearch.com/properties/larimer-county-co?minPrice=200000&maxPrice=500000&minAcres=3&maxAcres=5",
+        "scope": "Larimer County"
+      },
+      {
+        "site": "landwatch.com",
+        "url": "https://www.landwatch.com/CO/land-for-sale?MinPrice=200000&MaxPrice=500000&MinAcres=3&MaxAcres=5&County=Larimer",
+        "scope": "Larimer County"
+      }
+    ]
+  }
+}

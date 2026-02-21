@@ -10,3 +10,6 @@ MEMORY.md
 .DS_Store
 *.swp
 *~
+-e 
+# Secrets (NEVER commit API keys, tokens, passwords)
+secrets/
