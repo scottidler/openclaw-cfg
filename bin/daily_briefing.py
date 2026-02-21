@@ -73,6 +73,7 @@ def get_slack():
         "staging-env": "C01TSJ3F9GV",
         "ask-security": "C2BDSAAQ7",
         "incidents": "C01EMTW0XS7",
+        "it-helpdesk": "C02U9V18Q6T",
     }
 
     try:
@@ -115,7 +116,8 @@ def get_slack():
             r'^(good morning|gm|morning|hey|hi|hello|bye|ttyl|brb)[\s!.]*$',
         ]]
 
-        results = {}
+        # === CHANNEL ACTIVITY ===
+        channel_results = {}
         for ch_name, ch_id in CHANNELS.items():
             resp = slack_api("conversations.history", token, {
                 "channel": ch_id,
@@ -123,7 +125,7 @@ def get_slack():
                 "limit": 50,
             })
             if not resp.get("ok"):
-                results[ch_name] = f"(error: {resp.get('error', 'unknown')})"
+                channel_results[ch_name] = f"(error: {resp.get('error', 'unknown')})"
                 continue
 
             messages = resp.get("messages", [])
@@ -149,15 +151,64 @@ def get_slack():
                 entries.append(f"  - {user}: {preview}{thread_note}")
 
             if entries:
-                results[ch_name] = "\n".join(entries[:10])  # Top 10 per channel
-            # Skip channels with no activity (don't clutter output)
+                channel_results[ch_name] = "\n".join(entries[:10])
 
-        if not results:
+        # === DM & GROUP DM ACTIVITY (via search) ===
+        dm_results = []
+        yesterday = datetime.datetime.now() - datetime.timedelta(days=1)
+        date_str = yesterday.strftime("%Y-%m-%d")
+        import urllib.parse
+        resp = slack_api("search.messages", token, {
+            "query": f"to:me is:dm after:{date_str}",
+            "sort": "timestamp",
+            "sort_dir": "desc",
+            "count": 50,
+        })
+        if resp.get("ok"):
+            # Group by conversation
+            convos = {}
+            for m in resp.get("messages", {}).get("matches", []):
+                ch_name = m.get("channel", {}).get("name", "unknown")
+                username = m.get("username", "?")
+                text = m.get("text", "").strip()
+                if not text or any(p.match(text) for p in noise_re):
+                    continue
+                text = resolve(text)
+                preview = text[:120]
+                if len(text) > 120:
+                    preview += "..."
+                if ch_name not in convos:
+                    convos[ch_name] = []
+                if len(convos[ch_name]) < 3:  # Max 3 messages per convo
+                    convos[ch_name].append(f"  - {username}: {preview}")
+
+            for ch_name, msgs in convos.items():
+                # Clean up mpdm names to just show participants
+                display_name = ch_name
+                if ch_name.startswith("mpdm-"):
+                    parts = ch_name.replace("mpdm-", "").rsplit("-1", 1)[0]
+                    names = [n.split(".")[0].title() for n in parts.split("--") if n != "scott.idler"]
+                    display_name = "Group: " + ", ".join(names)
+                elif ch_name.startswith("D") or ch_name.startswith("U"):
+                    # Try to get a readable name from the first message
+                    first_user = msgs[0].split(":")[0].strip().lstrip("- ") if msgs else ch_name
+                    display_name = f"DM: {first_user}"
+                dm_results.append(f"{display_name}:\n" + "\n".join(msgs))
+
+        # === COMBINE OUTPUT ===
+        output = []
+        if channel_results:
+            output.append("CHANNELS:")
+            for ch_name, content in channel_results.items():
+                output.append(f"#{ch_name}:\n{content}")
+
+        if dm_results:
+            output.append("\nDMs & GROUP DMs:")
+            output.extend(dm_results)
+
+        if not output:
             return ["No notable Slack activity in the last 24h."]
 
-        output = []
-        for ch_name, content in results.items():
-            output.append(f"#{ch_name}:\n{content}")
         return output
 
     except Exception as e:
